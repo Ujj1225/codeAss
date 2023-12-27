@@ -1,10 +1,7 @@
 const express = require("express");
+const { home } = require("../controller/home");
 const router = express.Router();
 
-router.route("/").get((req, res) => {
-  res.json({
-    message: "Welcome first response of this API",
-  });
-});
+router.route("/").get(home);
 
 module.exports = router;
