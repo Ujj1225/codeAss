@@ -10,7 +10,7 @@
             <img src="https://img.shields.io/github/watchers/Ujj1225/codeAss?style=for-the-badge&logo=appveyor" alt="Watchers"/>
         </a>
         <a href="https://github.com/Ujj1225/codeAss/fork" target="blank">
-            <img src="https://img.shields.io/github/forks/SusheelThapa/C-DOTS?style=for-the-badge&logo=appveyor" alt="Forks"/>
+            <img src="https://img.shields.io/github/forks/Ujj1225/codeAss?style=for-the-badge&logo=appveyor" alt="Forks"/>
         </a>
         <a href="https://github.com/Ujj1225/codeAss/stargazers" target="blank">
             <img src="https://img.shields.io/github/stars/Ujj1225/codeAss?style=for-the-badge&logo=appveyor" alt="Star"/>

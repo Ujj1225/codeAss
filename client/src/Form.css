@@ -1,11 +1,20 @@
+* {
+  background-color: black;
+  color: white;
+}
 
 .code-form {
   width: 70%;
   margin: 0 auto;
 }
 
+.input-boxes {
+  margin-top: 4rem;
+  display: flex;
+}
+
 .input,
-.documentation{
+.documentation {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
@@ -32,7 +41,6 @@
   background-color: #2980b9;
 }
 
-/* Add some styling to make the form look cool and elegant */
 .input,
 .documentation,
 .language,
@@ -41,10 +49,11 @@ label {
   border-radius: 5px;
 }
 
-.translate{
+.translate {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 2rem;
 }
 
 .input,
@@ -53,4 +62,15 @@ label,
 .clear,
 .submit {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem;
+}
+
+.btn > button {
+  padding: 1rem;
+  font-weight: bold;
 }
