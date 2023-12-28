@@ -1,5 +1,3 @@
-# codeAss
-
 # <p align="center">Welcome to CodeAss, your assistant in coding! 🚀</p>
 
 <p align="center">
@@ -33,7 +31,7 @@
     </p>
 </p>
 
-[codeAss](https://github.com/Ujj1225/codeAss) is your secret sauce for transforming coding experience for developers. Powered by Gemini's magical API, it crafts clear summaries, optimizes code, translates it and even provides documentation of the related techStack, thus making coding a breeze!
+[codeAss](https://github.com/Ujj1225/codeAss) is your secret sauce for transforming the coding experience for developers. Powered by Gemini's magical API, it crafts clear summaries, optimizes code, translates it and even provides documentation of the related techStack, thus making coding a breeze!
 
 [codeAss](https://github.com/Ujj1225/codeAss) streamlines the coding process, making it more efficient, enjoyable and accessible.
 
