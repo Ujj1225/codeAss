@@ -1,0 +1,56 @@
+
+.code-form {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.input,
+.documentation{
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.input {
+  resize: vertical;
+}
+
+.clear,
+.submit {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 15px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.clear:hover,
+.submit:hover {
+  background-color: #2980b9;
+}
+
+/* Add some styling to make the form look cool and elegant */
+.input,
+.documentation,
+.language,
+label {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.translate{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input,
+.documentation,
+label,
+.clear,
+.submit {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
