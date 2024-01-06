@@ -21,4 +21,13 @@ const home = async (req, res) => {
   });
 };
 
-module.exports = { home };
+const optimize = (req, res) => {
+  
+  res.send("This is optimize");
+};
+
+const review = (req, res) => {
+  res.send("This is review");
+};
+
+module.exports = { home, optimize, review };
