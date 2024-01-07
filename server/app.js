@@ -2,15 +2,18 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const home = require("./routes/home");
- 
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+  })
+);
+
 app.use(express.json());
 
 require("dotenv").config();
 
 app.use("/api/v1", home);
-
 
 const port = process.env.PORT || 3000;
 

@@ -14,6 +14,7 @@ async function api_call() {
 }
 
 const home = async (req, res) => {
+  console.log(req.body);
   const display = await api_call();
   res.json({
     message: "Welcome first response of this API",
@@ -22,12 +23,18 @@ const home = async (req, res) => {
 };
 
 const optimize = (req, res) => {
-  
+  console.log("optimize");
   res.send("This is optimize");
 };
 
+const translate = (req, res) => {
+  console.log("translate");
+  res.send("This is translate");
+};
+
 const review = (req, res) => {
+  console.log("review");
   res.send("This is review");
 };
 
-module.exports = { home, optimize, review };
+module.exports = { home, optimize, review, translate };
