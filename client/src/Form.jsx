@@ -1,35 +1,55 @@
 import React, { useState } from "react";
-import axios from "axios";
 
 import "./Form.css";
 
 const Form = () => {
   const [response, setResponse] = useState("");
 
-  const handleApiResponse = async () => {
+  const [formData, setFormData] = useState({
+    code: "",
+    type: "",
+    translate_to: "",
+  });
+
+  const handleApiResponse = async (e, requestType) => {
+    e.preventDefault();
     try {
-      console.log("here");
-      const apiResponse = await axios.get("https://localhost:4000/api/v1", {
-        params: { prompt: "hello" },
-      });
-      setResponse(apiResponse.data); // Assuming the API response contains the data you want to display
+      const apiResponse = await fetch(
+        `https://localhost:4000/api/v1/${requestType}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            ...formData,
+            language: formData.translate_to,
+          }),
+        }
+      );
+      const data = await apiResponse.json();
+      setResponse(data.result || "No data received from the server");
     } catch (error) {
-      console.log("Error Encountered!");
+      console.error("Error Encountered!", error);
+      setResponse("Error communicating with the server");
     }
   };
 
-  const handleClear = () => {
-    // Implement clear functionality if needed
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Implement submit functionality if needed
+  const handleClear = () => {
+    setResponse("");
   };
 
   return (
-    <>
-      <form action="" className="code-form" onSubmit={handleSubmit}>
+  <>
+      <form className="code-form">
         <div className="input-boxes">
           <textarea
             name="code"
@@ -39,7 +59,7 @@ const Form = () => {
             placeholder="Paste your code here!"
             className="input"
             style={{ overflow: "scroll" }}
-            onChange={handleApiResponse}
+            onChange={handleChange}
           ></textarea>
           <textarea
             name="documentation"
@@ -54,9 +74,10 @@ const Form = () => {
         <div className="translate">
           <p className="mrr">TRANSLATE TO: </p>
           <select
-            name="language"
+            name="translate_to"
             className="language"
             style={{ marginRight: ".25rem", padding: ".25rem" }}
+            onChange={handleChange}
           >
             <option value="Cpp">CPP</option>
             <option value="Java">Java</option>
@@ -70,13 +91,25 @@ const Form = () => {
           <button type="button" className="clear" onClick={handleClear}>
             CLEAR
           </button>
-          <button type="submit" className="submit">
+          <button
+            type="submit"
+            className="submit"
+            onClick={(e) => handleApiResponse(e, "translate")}
+          >
             TRANSLATE
           </button>
-          <button type="submit" className="submit">
+          <button
+            type="submit"
+            className="submit"
+            onClick={(e) => handleApiResponse(e, "optimize")}
+          >
             OPTIMIZE
           </button>
-          <button type="submit" className="submit">
+          <button
+            type="submit"
+            className="submit"
+            onClick={(e) => handleApiResponse(e, "review")}
+          >
             REVIEW
           </button>
         </div>
