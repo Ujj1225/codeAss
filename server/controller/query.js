@@ -40,7 +40,7 @@ const optimize = async (req, res, next) => {
 const translate = async (req, res, next) => {
   try {
     const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-    const textToTranslate = req.body.text;
+    const textToTranslate = req.body.code;
     const targetLanguage = req.body.translate_to;
 
     if (!textToTranslate || !targetLanguage) {
@@ -48,7 +48,7 @@ const translate = async (req, res, next) => {
         .status(400)
         .json({
           error:
-            'Both "text" and "translate_to" are required in the request body.',
+            'Both "code" and "translate_to" are required in the request body.',
         });
     }
 
