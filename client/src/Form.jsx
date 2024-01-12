@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 import "./Form.css";
 
@@ -14,21 +15,30 @@ const Form = () => {
   const handleApiResponse = async (e, requestType) => {
     e.preventDefault();
     try {
-      const apiResponse = await fetch(
-        `https://localhost:4000/api/v1/${requestType}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            ...formData,
-            language: formData.translate_to,
-          }),
-        }
-      );
-      const data = await apiResponse.json();
-      setResponse(data.result || "No data received from the server");
+      const axiosConfig = {
+        method: "post",
+        url: `https://localhost:4000/api/v1/${requestType}`,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        data: {
+          ...formData,
+          language: formData.translate_to,
+        },
+      };
+
+      const { data } = await axios(axiosConfig);
+
+      switch (requestType) {
+        case "translate":
+        case "optimize":
+        case "review":
+          setResponse(data.message || "No data received from the server");
+          break;
+        default:
+          setResponse("Invalid request type");
+          break;
+      }
     } catch (error) {
       console.error("Error Encountered!", error);
       setResponse("Error communicating with the server");
@@ -48,8 +58,8 @@ const Form = () => {
   };
 
   return (
-  <>
-      <form className="code-form">
+    <>
+      <form className="code-form" onSubmit={(e) => e.preventDefault()}>
         <div className="input-boxes">
           <textarea
             name="code"
