@@ -1,21 +1,16 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const home = require("./routes/home");
+const query = require("./routes/query");
 
-app.use(
-  cors({
-    origin: "*",
-  })
-);
-
+app.use(cors());
 app.use(express.json());
 
 require("dotenv").config();
-
-app.use("/api/v1", home);
-
+  
 const port = process.env.PORT || 3000;
+
+app.use("/api/v1", query);
 
 const start = () => {
   app.listen(port, () => {
