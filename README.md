@@ -31,7 +31,7 @@
     </p>
 </p>
 
-[codeAss](https://github.com/Ujj1225/codeAss) is your secret sauce for transforming the coding experience for developers. Powered by Gemini's magical API, it crafts clear summaries, optimizes code, translates it and even provides documentation of the related techStack, thus making coding a breeze!
+[codeAss](https://github.com/Ujj1225/codeAss) is your secret sauce for transforming the coding experience for developers. Powered by Gemini's magical API, it crafts clear summaries, optimizes code, translates it and even provides review of the code-base, thus making coding a breeze!
 
 [codeAss](https://github.com/Ujj1225/codeAss) streamlines the coding process, making it more efficient, enjoyable and accessible.
 
@@ -49,11 +49,11 @@
 
 - **Summarizer**: Explains code in simple easy terms for everyone
 - **Optimizer**: Defines and optimizes the code to enhance efficiency of code
-- **Documentation**: Provides documentation for related techStack.
+- **Review**: Provides Review of code base.
 
 ## Demo
 
-![Demo of Interface](image.png)
+![Demo of Interface](video.webm)
 
 ## Installation
 
@@ -106,7 +106,7 @@ Run the application by executing both client and server side code:
 For Server side:
 
 ```bash
-node app.js
+node app.js 
 ```
 
 For Client side:

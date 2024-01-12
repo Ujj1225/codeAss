@@ -75,7 +75,7 @@ const Form = () => {
             rows="30"
             placeholder="Paste your code here!"
             className="input"
-            style={{ overflow: "scroll" }}
+            style={{ overflow: "scroll" , border: "3px solid white"}}
             value={formData.code}
             onChange={handleChange}
           ></textarea>
@@ -85,6 +85,7 @@ const Form = () => {
             rows="30"
             className="documentation"
             placeholder="Relevant Documentation!"
+            style={{border: "3px solid white"}}
             value={response}
             readOnly
           ></textarea>
