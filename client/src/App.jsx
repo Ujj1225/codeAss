@@ -1,10 +1,16 @@
-
-
-
 const App = () => {
   return (
     <>
-      <h1>This is the main APP component!</h1>
+      <h1
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignContent: "center",
+          marginTop: "4rem"
+        }}
+      >
+        codeAss!
+      </h1>
     </>
   );
 };

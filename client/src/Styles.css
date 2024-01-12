@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+}
+
+.nav {
+  background-color: #333;
+  color: white;
+  border: 10px solid green;
+}
+

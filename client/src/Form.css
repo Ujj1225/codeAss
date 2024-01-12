@@ -1,11 +1,8 @@
-* {
-  background-color: black;
-  color: white;
-}
+
 
 .code-form {
-  width: 70%;
-  margin: 0 auto; 
+  width: 90%;
+  margin: 0 auto;
 }
 
 .input-boxes {
@@ -47,7 +44,6 @@
 label {
   border: 1px solid #ccc;
   border-radius: 5px;
-  
 }
 
 .translate {
@@ -64,7 +60,7 @@ label,
 .submit {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-.mrr{
+.mrr {
   margin-right: 0.5em;
 }
 .btn {

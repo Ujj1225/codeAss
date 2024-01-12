@@ -8,7 +8,6 @@ const Form = () => {
 
   const [formData, setFormData] = useState({
     code: "",
-    type: "",
     translate_to: "",
   });
 
@@ -17,13 +16,13 @@ const Form = () => {
     try {
       const axiosConfig = {
         method: "post",
-        url: `https://localhost:4000/api/v1/${requestType}`,
+        url: `http://localhost:4000/api/v1/${requestType}`, // Update with your actual server address
         headers: {
           "Content-Type": "application/json",
         },
         data: {
-          ...formData,
-          language: formData.translate_to,
+          code: formData.code,
+          translate_to: formData.translate_to,
         },
       };
 
@@ -33,7 +32,12 @@ const Form = () => {
         case "translate":
         case "optimize":
         case "review":
-          setResponse(data.message || "No data received from the server");
+          setResponse(
+            data.reviewedContent ||
+              data.translatedText ||
+              data.optimizedCode ||
+              "No data received from the server"
+          );
           break;
         default:
           setResponse("Invalid request type");
@@ -54,31 +58,35 @@ const Form = () => {
   };
 
   const handleClear = () => {
+    setFormData({
+      code: "",
+      translate_to: "",
+    });
     setResponse("");
   };
 
   return (
     <>
-      <form className="code-form" onSubmit={(e) => e.preventDefault()}>
+      <form className="code-form">
         <div className="input-boxes">
           <textarea
             name="code"
-            id="code"
             cols="50"
             rows="30"
             placeholder="Paste your code here!"
             className="input"
             style={{ overflow: "scroll" }}
+            value={formData.code}
             onChange={handleChange}
           ></textarea>
           <textarea
             name="documentation"
-            id="documentation"
             cols="50"
             rows="30"
             className="documentation"
             placeholder="Relevant Documentation!"
             value={response}
+            readOnly
           ></textarea>
         </div>
         <div className="translate">
@@ -87,6 +95,7 @@ const Form = () => {
             name="translate_to"
             className="language"
             style={{ marginRight: ".25rem", padding: ".25rem" }}
+            value={formData.translate_to}
             onChange={handleChange}
           >
             <option value="Cpp">CPP</option>
@@ -102,21 +111,21 @@ const Form = () => {
             CLEAR
           </button>
           <button
-            type="submit"
+            type="button"
             className="submit"
             onClick={(e) => handleApiResponse(e, "translate")}
           >
             TRANSLATE
           </button>
           <button
-            type="submit"
+            type="button"
             className="submit"
             onClick={(e) => handleApiResponse(e, "optimize")}
           >
             OPTIMIZE
           </button>
           <button
-            type="submit"
+            type="button"
             className="submit"
             onClick={(e) => handleApiResponse(e, "review")}
           >
