@@ -16,7 +16,7 @@ const Form = () => {
     try {
       const axiosConfig = {
         method: "post",
-        url: `http://localhost:4000/api/v1/${requestType}`, // Update with your actual server address
+        url: `http://localhost:3000/api/v1/${requestType}`, 
         headers: {
           "Content-Type": "application/json",
         },
@@ -75,7 +75,7 @@ const Form = () => {
             rows="30"
             placeholder="Paste your code here!"
             className="input"
-            style={{ overflow: "scroll" , border: "3px solid white"}}
+            style={{ overflow: "scroll", border: "3px solid white" }}
             value={formData.code}
             onChange={handleChange}
           ></textarea>
@@ -85,7 +85,7 @@ const Form = () => {
             rows="30"
             className="documentation"
             placeholder="Relevant Documentation!"
-            style={{border: "3px solid white"}}
+            style={{ border: "3px solid white" }}
             value={response}
             readOnly
           ></textarea>
@@ -108,26 +108,26 @@ const Form = () => {
           </select>
         </div>
         <div className="btn">
-          <button type="button" className="clear" onClick={handleClear}>
+          <button class="glow-on-hover" type="button" onClick={handleClear}>
             CLEAR
           </button>
           <button
             type="button"
-            className="submit"
+            class="glow-on-hover"
             onClick={(e) => handleApiResponse(e, "translate")}
           >
             TRANSLATE
           </button>
           <button
             type="button"
-            className="submit"
+            class="glow-on-hover"
             onClick={(e) => handleApiResponse(e, "optimize")}
           >
             OPTIMIZE
           </button>
           <button
             type="button"
-            className="submit"
+            class="glow-on-hover"
             onClick={(e) => handleApiResponse(e, "review")}
           >
             REVIEW

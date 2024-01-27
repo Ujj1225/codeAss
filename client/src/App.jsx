@@ -1,16 +1,18 @@
 const App = () => {
+  const app_css = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  };
   return (
+    
     <>
       <h1
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignContent: "center",
-          marginTop: "4rem"
-        }}
+        style={app_css}
       >
-        codeAss!
+        CodeTech
       </h1>
+      <p style={app_css}>Get your own assistant for coding today!</p>
     </>
   );
 };

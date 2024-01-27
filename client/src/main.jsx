@@ -7,7 +7,6 @@ import "./Main.css"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    {/* <Navbar /> */}
     <App />
     <Form />
   </React.StrictMode>
